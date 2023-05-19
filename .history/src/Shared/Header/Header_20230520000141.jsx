@@ -90,7 +90,7 @@ const Header = () => {
               className="inline-flex items-center"
             >
               <span className="ml-2 text-xl font-bold tracking-wide text-gray-100">
-             Car<span className='text-yellow text-2xl'>Playground</span>
+              Homemade<span className='text-yellow text-2xl'>Crunch</span>
               </span>
             </Link>
             <ul className="flex items-center hidden space-x-7 lg:flex capitalize">
