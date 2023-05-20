@@ -36,7 +36,7 @@ const Header = () => {
     </li>
     <li className='flex items-center'>
       <NavLink
-        to="/toyShop"
+        to="/allservices"
         aria-label="allservice"
         title="allservice"
         className={({isActive})=>isActive?"font-medium text-yellow transition-colors duration-100" : "font-medium transition-colors duration-100 text-white"}

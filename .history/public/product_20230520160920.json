@@ -1,0 +1,108 @@
+[
+    {
+
+        "name": "Camry",
+        "brand": "Toyota",
+        "price": 99.99,
+        "rating": 4.5,
+        "picture": "https://i.ibb.co/6DSPgd5/gallery-3-removebg-preview-1.png",
+        "description": "The Toyota Camry is a mid-size sedan known for its reliability, comfort, and fuel efficiency. It offers a spacious interior, smooth ride, and a range of features and options. The Camry is often praised for its strong performance, advanced safety technologies, and excellent resale value. It is a popular choice among families and commuters seeking a practical and dependable vehicle."
+    },
+    {
+ 
+        "name": "Ford Mustang",
+        "brand": "Ford",
+        "price": 214.99,
+        "rating": 4.2,
+        "picture": "https://i.ibb.co/z8931nj/gallery-4-removebg-preview.png",
+        "description": "The Ford Mustang is an iconic sports car known for its powerful performance and classic design. It features a sleek and muscular exterior with a range of engine options that deliver impressive horsepower and torque. The Mustang offers a thrilling driving experience combining speed agility and precision handling. It has a rich history dating back to the 1960s and continues to be a symbol of American automotive heritage."
+    },
+    {
+
+        "name": "A3 Super Car",
+        "brand": "Audi",
+        "price": 122.99,
+        "rating": 4.7,
+        "picture": "https://i.ibb.co/ZK4hGqv/gallery-2-removebg-preview.png",
+        "description": " the A3 offers a driver-focused layout with intuitive controls and a user-friendly infotainment system. It typically includes features such as a touchscreen display, smartphone integration, Bluetooth connectivity, and advanced safety systems like lane departure warning and automatic emergency braking"
+    },
+    {
+
+        "name": "Ford F-150",
+        "brand": "Ford",
+        "price": 414.99,
+        "rating": 3.2,
+        "picture": "https://i.ibb.co/yBMTwCW/gallery-1-removebg-preview.png",
+        "description": "The Ford F-150 is a popular full-size pickup truck that is known for its durability, versatility, and capability. It offers a robust and rugged design, making it suitable for both work and everyday use. The F-150 is available with various engine options, including powerful V6 and V8 engines, providing excellent towing and hauling capabilities"
+    },
+    {
+
+        "name": "A4 Super Car",
+        "brand": "Audi",
+        "price": 322.99,
+        "rating": 3.9,
+        "picture": "https://i.ibb.co/rQM6h1C/gallery-10-removebg-preview.png",
+        "description": "The Audi A4 is a compact luxury sedan that embodies elegance, performance, and advanced technology. It showcases a refined exterior design with clean lines and a distinctive front grille, giving it a sophisticated and sporty appearance."
+    },
+    {
+
+        "name": "Corolla",
+        "brand": "Toyota",
+        "price": 79.99,
+        "rating": 2.5,
+        "picture": "https://i.ibb.co/yBMTwCW/gallery-1-removebg-preview.png",
+        "description": "The Toyota Corolla is a compact sedan that is highly regarded for its affordability, reliability, and fuel efficiency. It offers a comfortable ride, user-friendly features, and a practical interior with ample passenger and cargo space"
+    },
+    {
+
+        "name": "Ford Explore",
+        "brand": "Ford",
+        "price": 414.99,
+        "rating": 4.2,
+        "picture": "https://example.com/images/ford_car1.jpg",
+        "description": "The Ford Explorer is a mid-size SUV that combines comfort, versatility, and performance. It features a stylish and modern design, with a spacious interior that can accommodate up to seven passengers."
+    },
+    {
+
+        "name": "A5 Super Car",
+        "brand": "Audi",
+        "price": 722.99,
+        "rating": 4.9,
+        "picture": "https://i.ibb.co/rQM6h1C/gallery-10-removebg-preview.png",
+        "description": "The Audi A5 is a sleek and stylish luxury coupe that offers a blend of performance, elegance, and advanced features. It boasts a distinctive design characterized by flowing lines, a sculpted body, and a bold front grille."
+    },
+    {
+
+        "name": "Prius",
+        "brand": "Toyota",
+        "price": 99.99,
+        "rating": 4.5,
+        "picture": "https://i.ibb.co/ZK4hGqv/gallery-2-removebg-preview.png",
+        "description": "The Toyota Prius is a hybrid electric vehicle (HEV) that has gained popularity for its exceptional fuel efficiency and eco-friendly features. It is known for its distinctive aerodynamic design and advanced hybrid technology"
+    } ,
+    {
+
+        "name": "Ford Escape",
+        "brand": "Ford",
+        "price": 614.99,
+        "rating": 4.2,
+        "picture": "https://i.ibb.co/6DSPgd5/gallery-3-removebg-preview-1.png",
+        "description": "The Ford Escape is a compact SUV that offers a blend of practicality, efficiency, and versatility. It features a sleek and aerodynamic design, with a comfortable interior that can accommodate both passengers and cargo."
+    },
+    {
+        "name": "Q3 Super Car",
+        "brand": "Audi",
+        "price": 922.99,
+        "rating": 4.9,
+        "picture": "https://i.ibb.co/z8931nj/gallery-4-removebg-preview.png",
+        "description": "The Audi Q3 is a compact luxury SUV that combines versatility, style, and advanced technology. It features a sleek and modern design, with a bold front grille, sculpted lines, and distinctive LED headlights."
+    },
+    {
+        "name": "Highlander",
+        "brand": "Toyota",
+        "price": 339.99,
+        "rating": 4.5,
+        "picture": "https://i.ibb.co/ZK4hGqv/gallery-2-removebg-preview.png",
+        "description": "The Toyota Highlander is a mid-size SUV that offers a versatile and spacious interior along with a comfortable and smooth ride. It is known for its reliability, family-friendly features, and strong performance"
+    }
+]

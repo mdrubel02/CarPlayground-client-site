@@ -1,0 +1,26 @@
+[
+    {
+      "name": "Camry",
+      "brand": "Toyota",
+      "price": 99.99,
+      "rating": 4.5,
+      "picture": "https://example.com/images/toyota_car1.jpg",
+      "description": "The Toyota Camry is a mid-size sedan known for its reliability, comfort, and fuel efficiency. It offers a spacious interior, smooth ride, and a range of features and options. The Camry is often praised for its strong performance, advanced safety technologies, and excellent resale value. It is a popular choice among families and commuters seeking a practical and dependable vehicle."
+    },
+    {
+      "name": "Ford Mustang",
+      "brand": "Ford",
+      "price": 214.99,
+      "rating": 4.2,
+      "picture": "https://example.com/images/ford_car1.jpg",
+      "description": "The Ford Mustang is an iconic sports car known for its powerful performance and classic design. It features a sleek and muscular exterior with a range of engine options that deliver impressive horsepower and torque. The Mustang offers a thrilling driving experience combining speed agility and precision handling. It has a rich history dating back to the 1960s and continues to be a symbol of American automotive heritage."
+    },
+    {
+      "name": "A3 Super Car",
+      "brand": "Audi",
+      "price": 122.99,
+      "rating": 4.7,
+      "picture": "https://example.com/images/audi_car1.jpg",
+      "description": " the A3 offers a driver-focused layout with intuitive controls and a user-friendly infotainment system. It typically includes features such as a touchscreen display, smartphone integration, Bluetooth connectivity, and advanced safety systems like lane departure warning and automatic emergency braking"
+    }
+  ]
