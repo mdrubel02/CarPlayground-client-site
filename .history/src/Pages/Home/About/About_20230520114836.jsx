@@ -38,14 +38,21 @@ const About = () => {
                                     <p>Mobile App</p>
                                 </div>
                             </div>
-                            <div data-aos="fade-in" data-aos-id="super-duper"  className='py-5'>
+                            <div  className='py-5'>
                                 <img src="https://i.ibb.co/Fb8fFrv/pin.png" alt="" className='w-[60px] m-auto' />
                                 <div className='font-bold  mt-5'>
                                     <p>Wide</p>
                                     <p>Coverage Map</p>
                                 </div>
                             </div>
-                            <div data-aos="fade-in" data-aos-id="super-duper" className='py-5'>
+                            <div data-aos="fade-up"
+                                data-aos-offset="200"
+                                data-aos-delay="50"
+                                data-aos-duration="1000"
+                                data-aos-easing="ease-in-out"
+                                data-aos-mirror="true"
+                                data-aos-once="false"
+                                data-aos-anchor-placement="top-center" className='py-5'>
                                 <img src="https://i.ibb.co/THKGJkr/fast-delivery-1.png" alt="" className='w-[60px] m-auto' />
                                 <div className='font-bold  mt-5'>
                                     <p>More Than</p>

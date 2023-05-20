@@ -6,7 +6,7 @@ AOS.init();
 const About = () => {
     return (
         <div className="bg-gray-800 text-gray-50 my-6 md:my-16"
-
+           
         >
             <div className="grid grid-cols-12 mx-auto">
                 <div className="flex flex-col justify-center col-span-12 align-middle  lg:col-span-6 lg:h-auto">
@@ -18,34 +18,33 @@ const About = () => {
                             Sit at Home <br></br>
                             <span className='text-yellow'> We Will Take Care</span>
                         </h1>
-                        <div
-
-                            className='sm:grid sm:grid-cols-2  xl:grid-cols-4  gap-5 bg-yellow justify-between p-10 my-16 rounded-xl text-black text-center mb-10'>
-                            <div
-                                data-aos="fade-in" data-aos-id="super-duper"
-                                className='py-5'>
+                        <div 
+                        
+                       
+                        className='sm:grid sm:grid-cols-2  xl:grid-cols-4  gap-5 bg-yellow justify-between p-10 my-16 rounded-xl text-black text-center mb-10'>
+                            <div className='py-5'>
                                 <img src="https://i.ibb.co/W6jSxbC/fast-delivery.png" alt="" className='w-[60px] m-auto' />
-                                <div
-                                    className='font-bold  mt-5'>
+                                <div 
+                                data-aos="fade-in" data-aos-id="super-duper" className='font-bold  mt-5'>
                                     <p>Fast Delivery</p>
                                     <p>in 1 Hour</p>
                                 </div>
                             </div>
-                            <div data-aos="fade-in" data-aos-id="super-duper" className='py-5'>
+                            <div className='py-5'>
                                 <img src="https://i.ibb.co/3YnWgQ9/booking.png" alt="" className='w-[60px] m-auto' />
                                 <div className='font-bold  mt-5'>
                                     <p>Amazing</p>
                                     <p>Mobile App</p>
                                 </div>
                             </div>
-                            <div data-aos="fade-in" data-aos-id="super-duper"  className='py-5'>
+                            <div className='py-5'>
                                 <img src="https://i.ibb.co/Fb8fFrv/pin.png" alt="" className='w-[60px] m-auto' />
                                 <div className='font-bold  mt-5'>
                                     <p>Wide</p>
                                     <p>Coverage Map</p>
                                 </div>
                             </div>
-                            <div data-aos="fade-in" data-aos-id="super-duper" className='py-5'>
+                            <div className='py-5'>
                                 <img src="https://i.ibb.co/THKGJkr/fast-delivery-1.png" alt="" className='w-[60px] m-auto' />
                                 <div className='font-bold  mt-5'>
                                     <p>More Than</p>
