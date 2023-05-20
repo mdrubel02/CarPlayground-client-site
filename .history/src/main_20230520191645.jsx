@@ -7,7 +7,6 @@ import { RouterProvider } from 'react-router-dom';
 import router from './Layout/Route/router';
 import AuthProvider from './Context/AuthProvider';
 import 'react-photo-view/dist/react-photo-view.css';
-import 'react-tabs/style/react-tabs.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
