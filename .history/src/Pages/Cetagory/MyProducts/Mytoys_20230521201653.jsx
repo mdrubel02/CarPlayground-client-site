@@ -3,7 +3,6 @@ import useTitle from '../../../Hook/useTitle';
 import { AuthContext } from '../../../Context/AuthProvider'
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import DeleteProduct from './DeleteProduct';
 
 
 const MyToys = () => {
@@ -19,7 +18,7 @@ const MyToys = () => {
     })
     const { price, description, quantity } = updateProduct
     useTitle('MyToys')
-    console.log(deleteProduct);
+    console.log(updateModal);
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
@@ -33,7 +32,7 @@ const MyToys = () => {
             }
             )
     }, [myReviewRefresh])
-
+    console.log(user?.email);
 
     const handleInputData = (event) => {
         const name = event.target.name
@@ -64,7 +63,7 @@ const MyToys = () => {
                 .then(data => {
                     if (data.modifiedCount > 0) {
                         setMyReviewRefresh(!myReviewRefresh)
-                        toast.success('product update successfull', { autoClose: 1000 })
+                        toast.success('Review update successfull', { autoClose: 1000 })
                         form.reset()
                     }
                 })
@@ -72,21 +71,20 @@ const MyToys = () => {
         }
     }
     //delete handler
-    const productDeleteHandler = (id) => {
-        console.log(id);
-        const sure = window.confirm('Are you sure , you want to delete this product ?')
-        if (sure) {
-            fetch(`http://localhost:5000/deleteProduct/${id}`, {
-                method: 'DELETE',
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount) {
-                        setMyReviewRefresh(!myReviewRefresh)
-                        toast.success('Delete product succesfully', { autoClose: 1000 })
-                    }
-                })
-                .catch(error => console.log(error.message))
+    const deleteHandler = () => {
+        const sure = window.confirm('Are you sure , you want to delete this review ?')
+        if(sure){
+            fetch(`https://homemade-crunch-server.vercel.app/myreviews/${_id}`,{
+            method:'DELETE',
+        })
+        .then(res=> res.json())
+        .then(data=>{
+           if(data.deletedCount){
+            setMyReviewRefresh(!myReviewRefresh)
+            toast.success('Delete review succesfully',{autoClose:1000})
+           }
+        })
+        .catch(error=>console.log(error.message))
 
         }
     }
@@ -134,7 +132,7 @@ const MyToys = () => {
                                     <a onClick={() => setUpdateModal(myToy?._id)} className="cursor-pointer inline-flex items-center justify-center w-full py-2 px-2 font-semibold tracking-wide text-white transition duration-200 rounded-full shadow-md outline-none bg-black btn" href="#my-modal-2" >Edit</a>
                                 </th>
                                 <th>
-                                    <label onClick={() => setDeleteProduct(myToy)} htmlFor="my-modal" className="btn btn-ghost btn-xs">Delete</label>
+                                    <button onClick={() => setDeleteProduct(myToy)} className="btn btn-ghost btn-xs" htmlFor="confirmation-modal">Delete</button>
                                 </th>
 
                             </tr>
@@ -204,10 +202,7 @@ const MyToys = () => {
                     </div>
                 </div>
                 {
-                    deleteProduct && <DeleteProduct
-                        productDeleteHandler={productDeleteHandler}
-                        deleteProduct={deleteProduct}
-                    ></DeleteProduct>
+
                 }
             </div>
                 :

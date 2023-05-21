@@ -64,7 +64,7 @@ const MyToys = () => {
                 .then(data => {
                     if (data.modifiedCount > 0) {
                         setMyReviewRefresh(!myReviewRefresh)
-                        toast.success('product update successfull', { autoClose: 1000 })
+                        toast.success('Review update successfull', { autoClose: 1000 })
                         form.reset()
                     }
                 })
@@ -72,18 +72,17 @@ const MyToys = () => {
         }
     }
     //delete handler
-    const productDeleteHandler = (id) => {
-        console.log(id);
-        const sure = window.confirm('Are you sure , you want to delete this product ?')
+    const productDeleteHandler = () => {
+        const sure = window.confirm('Are you sure , you want to delete this review ?')
         if (sure) {
-            fetch(`http://localhost:5000/deleteProduct/${id}`, {
+            fetch(`https://homemade-crunch-server.vercel.app/myreviews/${_id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount) {
                         setMyReviewRefresh(!myReviewRefresh)
-                        toast.success('Delete product succesfully', { autoClose: 1000 })
+                        toast.success('Delete review succesfully', { autoClose: 1000 })
                     }
                 })
                 .catch(error => console.log(error.message))
