@@ -157,7 +157,7 @@ const MyToys = () => {
 
                     </table> :
                         <div className='bg-yellow py-20 px-5 md:px-16 xl:px-28 text-center rounded-xl'>
-                            <h3 className='font-semibold text-2xl capitalize'>No product were added</h3>
+                            <h3 className='font-semibold text-2xl capitalize'>No reviews were added</h3>
                         </div>
                 }
                 <div>

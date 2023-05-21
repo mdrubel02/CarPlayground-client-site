@@ -25,17 +25,17 @@ const ShortProducts = () => {
     }
     //http://localhost:5000/audi
     const handleAudi = async () => {
-        const res = await fetch('https://car-playground-server-site.vercel.app/audi')
+        const res = await fetch('http://localhost:5000/audi')
         const data = await res.json()
         setAudiProducts(data.data);
     }
     const handleToyota = async () => {
-        const res = await fetch('https://car-playground-server-site.vercel.app/toyota')
+        const res = await fetch('http://localhost:5000/toyota')
         const data = await res.json()
         setToyotaProducts(data.data);
     }
     const handleFord = async () => {
-        const res = await fetch('https://car-playground-server-site.vercel.app/ford')
+        const res = await fetch('http://localhost:5000/ford')
         const data = await res.json()
         setFordProducts(data.data);
     }

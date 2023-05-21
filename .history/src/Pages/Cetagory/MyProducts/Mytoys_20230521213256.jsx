@@ -94,72 +94,67 @@ const MyToys = () => {
 
         <>
             {status ? <div className="overflow-x-auto w-full">
-                {
-                    myToys.length > 0 ? <table className="table w-full">
-                        {/* head */}
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {/* row 1 */}
-                            {
-                                myToys.map((myToy, index) => <tr>
-                                    <td>
-                                        <div className="flex items-center space-x-3">
-                                            <div className="avatar">
-                                                <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={myToy?.picture} alt="Avatar Tailwind CSS Component" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className="font-bold">{myToy?.userName}</div>
-                                                <div className="text-sm opacity-50">Bangladesh</div>
+                <table className="table w-full">
+                    {/* head */}
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {/* row 1 */}
+                        {
+                            myToys.map((myToy, index) => <tr>
+                                <td>
+                                    <div className="flex items-center space-x-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle w-12 h-12">
+                                                <img src={myToy?.picture} alt="Avatar Tailwind CSS Component" />
                                             </div>
                                         </div>
-                                    </td>
-                                    <td>
+                                        <div>
+                                            <div className="font-bold">{myToy?.userName}</div>
+                                            <div className="text-sm opacity-50">Bangladesh</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
 
-                                        <span className="badge badge-ghost badge-sm">{myToy?.description.slice(0, 50)}</span>
-                                    </td>
-                                    <td>{myToy?.quantity}</td>
-                                    <td>{myToy?.price}</td>
-                                    <th>
+                                    <span className="badge badge-ghost badge-sm">{myToy?.description.slice(0, 50)}</span>
+                                </td>
+                                <td>{myToy?.quantity}</td>
+                                <td>{myToy?.price}</td>
+                                <th>
 
-                                        <a onClick={() => setUpdateModal(myToy?._id)} className="cursor-pointer inline-flex items-center justify-center w-full py-2 px-2 font-semibold tracking-wide text-white transition duration-200 rounded-full shadow-md outline-none bg-black btn" href="#my-modal-2" >Edit</a>
-                                    </th>
-                                    <th>
-                                        <label onClick={() => setDeleteProduct(myToy)} htmlFor="my-modal" className="btn btn-ghost btn-xs">Delete</label>
-                                    </th>
+                                    <a onClick={() => setUpdateModal(myToy?._id)} className="cursor-pointer inline-flex items-center justify-center w-full py-2 px-2 font-semibold tracking-wide text-white transition duration-200 rounded-full shadow-md outline-none bg-black btn" href="#my-modal-2" >Edit</a>
+                                </th>
+                                <th>
+                                    <label onClick={() => setDeleteProduct(myToy)} htmlFor="my-modal" className="btn btn-ghost btn-xs">Delete</label>
+                                </th>
 
-                                </tr>
-                                )
-
-                            }
-
-                        </tbody>
-                        {/* foot */}
-                        <tfoot>
-                            <tr>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Quantity</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
                             </tr>
-                        </tfoot>
+                            )
 
-                    </table> :
-                        <div className='bg-yellow py-20 px-5 md:px-16 xl:px-28 text-center rounded-xl'>
-                            <h3 className='font-semibold text-2xl capitalize'>No product were added</h3>
-                        </div>
-                }
+                        }
+
+                    </tbody>
+                    {/* foot */}
+                    <tfoot>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </tfoot>
+
+                </table>
                 <div>
                     <div className="modal" id="my-modal-2">
                         <div className="modal-box">
