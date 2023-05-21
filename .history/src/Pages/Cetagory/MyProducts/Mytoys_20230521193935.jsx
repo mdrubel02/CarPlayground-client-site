@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import useTitle from '../../../Hook/useTitle';
 import { AuthContext } from '../../../Context/AuthProvider'
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 
 const MyToys = () => {

@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import useTitle from '../../../Hook/useTitle';
 import { AuthContext } from '../../../Context/AuthProvider'
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 
 const MyToys = () => {
@@ -51,7 +50,7 @@ const MyToys = () => {
         }
 
         if (price && description && quantity) {
-            fetch(`http://localhost:5000/updateProduct/${updateModal}`, {
+            fetch(`https://homemade-crunch-server.vercel.app/myreviews/${updateModal}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

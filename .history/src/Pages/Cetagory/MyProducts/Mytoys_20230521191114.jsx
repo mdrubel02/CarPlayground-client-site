@@ -2,22 +2,20 @@ import React, { useContext, useEffect, useState } from 'react';
 import useTitle from '../../../Hook/useTitle';
 import { AuthContext } from '../../../Context/AuthProvider'
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 
 const MyToys = () => {
     const { user, myReviewRefresh, setMyReviewRefresh } = useContext(AuthContext)
     const [status, setStatus] = useState(false)
     const [myToys, setMyToys] = useState([])
-    const [updateModal, setUpdateModal] = useState()
     const [updateProduct, setUpdateProduct] = useState({
         price: 0,
         description: "",
         quantity: 0,
     })
-    const { price, description, quantity } = updateProduct
+
     useTitle('MyToys')
-    console.log(updateModal);
+
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
@@ -39,35 +37,44 @@ const MyToys = () => {
         setUpdateProduct({ ...updateProduct, [name]: value })
 
     }
-
     const handleUpdateReview = (event) => {
         event.preventDefault()
         const form = event.target
 
-        const products = {
-            price,
-            description,
-            quantity
-        }
+        // const reviewer = {
+        //     review:reviews,
+        //     rating:ratings,
+        //     date:date.format("YYYY/MM/DD hh:mm a")
+        // }
 
-        if (price && description && quantity) {
-            fetch(`http://localhost:5000/updateProduct/${updateModal}`, {
-                method: 'PATCH',
-                headers: {
-                    'content-type': 'application/json',
-                },
-                body: JSON.stringify(products)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.modifiedCount > 0) {
-                        setMyReviewRefresh(!myReviewRefresh)
-                        toast.success('Review update successfull', { autoClose: 1000 })
-                        form.reset()
-                    }
-                })
-                .catch(error => toast.error(error.message, { autoClose: 1000 }))
-        }
+        // if(ratings && reviews){
+        //     fetch(`https://homemade-crunch-server.vercel.app/myreviews/${_id}`,{
+        //         method:'PATCH',
+        //         headers:{
+        //             'content-type':'application/json',
+        //             authorization:`Bearer ${localStorage.getItem('HomemadeCrunch-Token')}`
+        //         },
+        //         body:JSON.stringify(reviewer)
+        //     })
+        //     .then(res=>{
+        //         if(res.status===401 || res.status===403){
+        //             toast.error('Unauthoroized user',{autoClose:1000})
+        //             logOut()
+        //         }
+        //         return res.json()
+        //     })
+        //     .then(data=>{
+        //        if(data.modifiedCount>0){
+        //         setMyReviewRefresh(!myReviewRefresh)
+        //         toast.success('Review update successfull',{autoClose:1000})
+        //         form.reset()
+        //        }
+        //     })
+        //     .catch(error=>toast.error(error.message,{autoClose:1000}))
+        // }
+        // else{
+        //     toast.error("your review not found,Please provide us valid information",{autoClose:1000})
+        // }
     }
 
     return (
@@ -111,7 +118,7 @@ const MyToys = () => {
                                 <td>{myToy?.price}</td>
                                 <th>
 
-                                    <a onClick={() => setUpdateModal(myToy?._id)} className="cursor-pointer inline-flex items-center justify-center w-full py-2 px-2 font-semibold tracking-wide text-white transition duration-200 rounded-full shadow-md outline-none bg-black btn" href="#my-modal-2" >Edit</a>
+                                    <a className="cursor-pointer inline-flex items-center justify-center w-full py-2 px-2 font-semibold tracking-wide text-white transition duration-200 rounded-full shadow-md outline-none bg-black btn" href="#my-modal-2" >Edit</a>
                                 </th>
                                 <th>
                                     <button className="btn btn-ghost btn-xs">Delete</button>

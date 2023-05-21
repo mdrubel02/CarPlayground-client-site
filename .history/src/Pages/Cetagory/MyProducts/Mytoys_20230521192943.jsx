@@ -2,22 +2,21 @@ import React, { useContext, useEffect, useState } from 'react';
 import useTitle from '../../../Hook/useTitle';
 import { AuthContext } from '../../../Context/AuthProvider'
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 
 const MyToys = () => {
     const { user, myReviewRefresh, setMyReviewRefresh } = useContext(AuthContext)
     const [status, setStatus] = useState(false)
     const [myToys, setMyToys] = useState([])
-    const [updateModal, setUpdateModal] = useState()
+    const [updateModal,setUpdateModal]= useState()
     const [updateProduct, setUpdateProduct] = useState({
         price: 0,
         description: "",
         quantity: 0,
     })
-    const { price, description, quantity } = updateProduct
+    const {price, description,quantity} = updateProduct
     useTitle('MyToys')
-    console.log(updateModal);
+console.log(updateModal);
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
@@ -32,41 +31,46 @@ const MyToys = () => {
             )
     }, [myReviewRefresh])
     console.log(user?.email);
-
+    
     const handleInputData = (event) => {
         const name = event.target.name
         const value = event.target.value
         setUpdateProduct({ ...updateProduct, [name]: value })
 
     }
-
     const handleUpdateReview = (event) => {
         event.preventDefault()
         const form = event.target
 
-        const products = {
-            price,
-            description,
-            quantity
-        }
+        
 
-        if (price && description && quantity) {
-            fetch(`http://localhost:5000/updateProduct/${updateModal}`, {
-                method: 'PATCH',
-                headers: {
-                    'content-type': 'application/json',
+        if(price && description && quantity){
+            fetch(`https://homemade-crunch-server.vercel.app/myreviews/${_id}`,{
+                method:'PATCH',
+                headers:{
+                    'content-type':'application/json',
+                    authorization:`Bearer ${localStorage.getItem('HomemadeCrunch-Token')}`
                 },
-                body: JSON.stringify(products)
+                body:JSON.stringify(reviewer)
             })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.modifiedCount > 0) {
-                        setMyReviewRefresh(!myReviewRefresh)
-                        toast.success('Review update successfull', { autoClose: 1000 })
-                        form.reset()
-                    }
-                })
-                .catch(error => toast.error(error.message, { autoClose: 1000 }))
+            .then(res=>{
+                if(res.status===401 || res.status===403){
+                    toast.error('Unauthoroized user',{autoClose:1000})
+                    logOut()
+                }
+                return res.json()
+            })
+            .then(data=>{
+               if(data.modifiedCount>0){
+                setMyReviewRefresh(!myReviewRefresh)
+                toast.success('Review update successfull',{autoClose:1000})
+                form.reset()
+               }
+            })
+            .catch(error=>toast.error(error.message,{autoClose:1000}))
+        }
+        else{
+            toast.error("your review not found,Please provide us valid information",{autoClose:1000})
         }
     }
 

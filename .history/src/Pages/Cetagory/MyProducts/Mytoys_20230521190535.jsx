@@ -2,26 +2,24 @@ import React, { useContext, useEffect, useState } from 'react';
 import useTitle from '../../../Hook/useTitle';
 import { AuthContext } from '../../../Context/AuthProvider'
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 
 const MyToys = () => {
     const { user, myReviewRefresh, setMyReviewRefresh } = useContext(AuthContext)
     const [status, setStatus] = useState(false)
     const [myToys, setMyToys] = useState([])
-    const [updateModal, setUpdateModal] = useState()
-    const [updateProduct, setUpdateProduct] = useState({
+    const [updateProduct, setUpdateProduct]= useState({
         price: 0,
         description: "",
         quantity: 0,
-    })
-    const { price, description, quantity } = updateProduct
+      })
+
     useTitle('MyToys')
-    console.log(updateModal);
+
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
-
+ 
     useEffect(() => {
         fetch(`http://localhost:5000/myToys?email=${user?.email}`)
             .then(res => res.json())
@@ -36,38 +34,47 @@ const MyToys = () => {
     const handleInputData = (event) => {
         const name = event.target.name
         const value = event.target.value
-        setUpdateProduct({ ...updateProduct, [name]: value })
+       setUpdateProduct({ ...updateProduct, [name]: value })
 
     }
-
-    const handleUpdateReview = (event) => {
+    const handleUpdateReview=(event)=>{
         event.preventDefault()
         const form = event.target
-
-        const products = {
-            price,
-            description,
-            quantity
-        }
-
-        if (price && description && quantity) {
-            fetch(`http://localhost:5000/updateProduct/${updateModal}`, {
-                method: 'PATCH',
-                headers: {
-                    'content-type': 'application/json',
-                },
-                body: JSON.stringify(products)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.modifiedCount > 0) {
-                        setMyReviewRefresh(!myReviewRefresh)
-                        toast.success('Review update successfull', { autoClose: 1000 })
-                        form.reset()
-                    }
-                })
-                .catch(error => toast.error(error.message, { autoClose: 1000 }))
-        }
+      
+        // const reviewer = {
+        //     review:reviews,
+        //     rating:ratings,
+        //     date:date.format("YYYY/MM/DD hh:mm a")
+        // }
+       
+        // if(ratings && reviews){
+        //     fetch(`https://homemade-crunch-server.vercel.app/myreviews/${_id}`,{
+        //         method:'PATCH',
+        //         headers:{
+        //             'content-type':'application/json',
+        //             authorization:`Bearer ${localStorage.getItem('HomemadeCrunch-Token')}`
+        //         },
+        //         body:JSON.stringify(reviewer)
+        //     })
+        //     .then(res=>{
+        //         if(res.status===401 || res.status===403){
+        //             toast.error('Unauthoroized user',{autoClose:1000})
+        //             logOut()
+        //         }
+        //         return res.json()
+        //     })
+        //     .then(data=>{
+        //        if(data.modifiedCount>0){
+        //         setMyReviewRefresh(!myReviewRefresh)
+        //         toast.success('Review update successfull',{autoClose:1000})
+        //         form.reset()
+        //        }
+        //     })
+        //     .catch(error=>toast.error(error.message,{autoClose:1000}))
+        // }
+        // else{
+        //     toast.error("your review not found,Please provide us valid information",{autoClose:1000})
+        // }
     }
 
     return (
@@ -111,7 +118,7 @@ const MyToys = () => {
                                 <td>{myToy?.price}</td>
                                 <th>
 
-                                    <a onClick={() => setUpdateModal(myToy?._id)} className="cursor-pointer inline-flex items-center justify-center w-full py-2 px-2 font-semibold tracking-wide text-white transition duration-200 rounded-full shadow-md outline-none bg-black btn" href="#my-modal-2" >Edit</a>
+                                    <a className="cursor-pointer inline-flex items-center justify-center w-full py-2 px-2 font-semibold tracking-wide text-white transition duration-200 rounded-full shadow-md outline-none bg-black btn" href="#my-modal-2" >Edit</a>
                                 </th>
                                 <th>
                                     <button className="btn btn-ghost btn-xs">Delete</button>
@@ -141,35 +148,28 @@ const MyToys = () => {
                             <form onSubmit={handleUpdateReview}>
                                 <div className="mb-1 sm:mb-2">
                                     <div className='mb-3'>
-                                        <label htmlFor="rating" className='font-semibold mb-2 inline-block'>Update Your Product </label>
+                                        <label htmlFor="rating" className='font-semibold mb-2 inline-block'>Add a Rating : </label>
                                         <input
                                             onBlur={handleInputData}
-                                            placeholder="Price"
+                                            placeholder="Ratings"
                                             required
+                                            defaultValue=''
                                             type="number"
                                             className="py-3 w-full bg-white border border-gray-300 rounded-lg shadow-sm flex-grow px-4  transition duration-200 placeholder:text-black font-medium outline-none bg-none"
-                                            id="price"
-                                            name="price"
-                                        />
-                                        <input
-                                            onBlur={handleInputData}
-                                            placeholder="quantity"
-                                            required
-                                            type="number"
-                                            className="py-3 w-full bg-white border border-gray-300 rounded-lg shadow-sm flex-grow px-4  transition duration-200 placeholder:text-black font-medium outline-none bg-none"
-                                            id="quantity"
-                                            name="quantity"
+                                            id="ratings"
+                                            name="ratings"
                                         />
                                     </div>
                                     <textarea
                                         onBlur={handleInputData}
-                                        name="description" id="description" cols="30" rows="3"
-                                        placeholder='Description...'
+                                        name="reviews" id="reviews" cols="30" rows="3"
+                                        defaultValue=''
+                                        placeholder='Type Review....'
                                         className="py-3 w-full bg-white border border-gray-300 rounded-lg shadow-sm flex-grow px-4  transition duration-200 placeholder:text-black font-medium  outline-none bg-none"
                                     ></textarea>
                                     <div className='flex justify-end items-center'>
                                         <div className="modal-action">
-                                            <a href="#" className="btn">Cancel</a>
+                                            <a href="#" className="btn">Yay!</a>
                                         </div>
                                         <button
                                             type="submit"
