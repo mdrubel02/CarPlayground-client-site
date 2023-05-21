@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Title from '../../../Shared/Title/Title';
-import useTitle from '../../../Hook/useTitle' 
-import ShortProductItems from '../../Home/ShortProducts/ShortProductItems';
 
 const AllCategory = () => {
     const [services,setServices] = useState([])
@@ -10,7 +8,7 @@ const AllCategory = () => {
     const [count,setCount] = useState(0)
     const [page,setPage] = useState(0)
 
-    useTitle('toy-shop')
+    useTitle('Services')
     useEffect(()=>{
         window.scrollTo(0, 0)
     },[])
@@ -44,7 +42,7 @@ const AllCategory = () => {
             services.length>0 ?
             <div className='sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-10 '>
             {
-                services.map(service=><ShortProductItems key={service._id} serviceItem={service}></ShortProductItems>)
+                services.map(service=><ServiceItem key={service._id} serviceItem={service}></ServiceItem>)
             }
             </div>
             :

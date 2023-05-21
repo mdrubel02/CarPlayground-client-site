@@ -21,7 +21,7 @@ const ShortProducts = () => {
 
     const content = {
         head: "Quick pick",
-        title: "Our Car Shop"
+        title: "Our Car"
     }
     //http://localhost:5000/audi
     const handleAudi = async () => {

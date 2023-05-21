@@ -10,7 +10,7 @@ const AllCategory = () => {
     const [count,setCount] = useState(0)
     const [page,setPage] = useState(0)
 
-    useTitle('toy-shop')
+    useTitle('Services')
     useEffect(()=>{
         window.scrollTo(0, 0)
     },[])
