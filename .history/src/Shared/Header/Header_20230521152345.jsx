@@ -50,12 +50,12 @@ const Header = () => {
       <>
     <li className='flex items-center'>
       <NavLink
-        to="/myToys"
+        to="/myreviews"
         aria-label="myreview"
         title="myreview"
         className={({isActive})=>isActive?"font-medium text-yellow transition-colors duration-100" : "font-medium transition-colors duration-100 text-white"}
       >
-        My Toys
+        My Reviews
       </NavLink>
       <FaAngleRight className='text-yellow ml-1 text-xs'></FaAngleRight>
     </li>
@@ -66,7 +66,7 @@ const Header = () => {
         title="addService"
         className={({isActive})=>isActive?"font-medium text-yellow transition-colors duration-100" : "font-medium transition-colors duration-100 text-white"}
       >
-         Add A Toy
+         Add Car
       </NavLink>
       <FaAngleRight className='text-yellow ml-1 text-xs'></FaAngleRight>
     </li>
