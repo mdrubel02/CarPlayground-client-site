@@ -1,10 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { AuthContext } from '../../../Context/AuthProvider';
 
 const AddCategory = () => {
-  const {user}= useContext(AuthContext)
-
   const [brand, setBrand] = useState('');
   const [formData, setFormData] = useState({
     name: "",
@@ -31,8 +28,6 @@ const AddCategory = () => {
 
 
   // user login
-  let email = user?.email;
-  let userName = user?.displayName;
   const serviceAddHandle = (event) => {
     event.preventDefault()
     const form = event.target
@@ -43,27 +38,26 @@ const AddCategory = () => {
       description,
       picture,
       quantity,
-      brand,
-      email,
-      userName
+      brand
     }
+    console.log(products);
 
-    if (name && price && rating && description && picture) {
-      fetch('http://localhost:5000/products', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify(products)
-      })
-        .then(res => res.json())
-        .then(data => {
-          form.reset()
-          toast.success('Service added successfull', { autoClose: 1000 })
-        })
-    } else {
-      toast.error('Please provide us all valid information', { autoClose: 1000 })
-    }
+    // if (name && price && rating && description && picture) {
+    //   fetch('https://homemade-crunch-server.vercel.app/services', {
+    //     method: 'POST',
+    //     headers: {
+    //       'content-type': 'application/json'
+    //     },
+    //     body: JSON.stringify(products)
+    //   })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //       form.reset()
+    //       toast.success('Service added successfull', { autoClose: 1000 })
+    //     })
+    // } else {
+    //   toast.error('Please provide us all valid information', { autoClose: 1000 })
+    // }
   }
   return (
     <div className="relative">

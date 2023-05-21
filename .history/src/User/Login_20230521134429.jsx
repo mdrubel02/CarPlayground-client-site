@@ -44,6 +44,7 @@ const Login = () => {
         if(email && password){
             userSignIn(email,password)
             .then(result=>{
+                // jwtToken(email,navigation)
                 navigation()
                 toast.success("Login successfull",{autoClose:1000})
                 form.reset()

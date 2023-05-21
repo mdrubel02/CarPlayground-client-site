@@ -100,7 +100,7 @@ const Header = () => {
              {
               user?
               <div className='flex items-center'>
-                <small className='text-white'>{user?.displayName}</small>
+                <small className='text-white'>{user?.email}</small>
                 <img src={user?.photoURL} alt="user" className='w-[40px] h-[40px] object-cover rounded-full ml-2'/>
               </div> :
               <li>

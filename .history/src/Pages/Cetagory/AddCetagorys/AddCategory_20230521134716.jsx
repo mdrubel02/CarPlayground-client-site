@@ -1,11 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { AuthContext } from '../../../Context/AuthProvider';
 
 const AddCategory = () => {
-  const {user}= useContext(AuthContext)
-
-  const [brand, setBrand] = useState('');
   const [formData, setFormData] = useState({
     name: "",
     price: 0,
@@ -13,16 +9,14 @@ const AddCategory = () => {
     description: "",
     picture: "",
     quantity: "",
+    brand: ""
   })
-  const { name, price, rating, description, picture ,quantity} = formData
+  const { name, price, rating, description, picture } = formData
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
   // get input value
-  const handleInputBrandData = (event) => {
-    setBrand(event.target.value);
-  };
   const handleInputData = (event) => {
     const name = event.target.name
     const value = event.target.value
@@ -31,8 +25,6 @@ const AddCategory = () => {
 
 
   // user login
-  let email = user?.email;
-  let userName = user?.displayName;
   const serviceAddHandle = (event) => {
     event.preventDefault()
     const form = event.target
@@ -43,27 +35,25 @@ const AddCategory = () => {
       description,
       picture,
       quantity,
-      brand,
-      email,
-      userName
     }
+    console.log(products);
 
-    if (name && price && rating && description && picture) {
-      fetch('http://localhost:5000/products', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify(products)
-      })
-        .then(res => res.json())
-        .then(data => {
-          form.reset()
-          toast.success('Service added successfull', { autoClose: 1000 })
-        })
-    } else {
-      toast.error('Please provide us all valid information', { autoClose: 1000 })
-    }
+    // if (name && price && rating && description && picture) {
+    //   fetch('https://homemade-crunch-server.vercel.app/services', {
+    //     method: 'POST',
+    //     headers: {
+    //       'content-type': 'application/json'
+    //     },
+    //     body: JSON.stringify(products)
+    //   })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //       form.reset()
+    //       toast.success('Service added successfull', { autoClose: 1000 })
+    //     })
+    // } else {
+    //   toast.error('Please provide us all valid information', { autoClose: 1000 })
+    // }
   }
   return (
     <div className="relative">
@@ -97,18 +87,17 @@ const AddCategory = () => {
                     <div className='relative  mb-3'>
                       <img src="https://i.ibb.co/k4CCmVP/3377055-bowl-food-noodle-ramen-icon-1.png" alt="" className='absolute left-[-5px] top-0 text-black' />
                       <select className="py-3 w-full bg-white border border-gray-300 rounded-full shadow-sm flex-grow px-4  transition duration-200 placeholder:text-black font-medium  outline-none pl-12 bg-none"
-                        onChange={handleInputBrandData}
+                        onBlur={handleInputData}
                         placeholder="Select Your Brand"
                         required
                         type="text"
                         id="brand"
                         name="brand"
-                        value={brand}
                       >
-                        <option disabled selected value=''>Select Your Brand</option>
-                        <option value='Toyota'>Toyota</option>
-                        <option value='Ford'>Ford</option>
-                        <option value='Audi'>Audi</option>
+                        <option disabled selected>Select Your Brand</option>
+                        <option>Toyota</option>
+                        <option>Ford</option>
+                        <option>Audi</option>
                       </select>
                     </div>
                     <div className='relative  mb-3'>

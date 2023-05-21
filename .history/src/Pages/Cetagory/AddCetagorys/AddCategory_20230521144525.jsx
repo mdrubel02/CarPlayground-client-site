@@ -47,6 +47,7 @@ const AddCategory = () => {
       email,
       userName
     }
+    console.log(products);
 
     if (name && price && rating && description && picture) {
       fetch('http://localhost:5000/products', {
